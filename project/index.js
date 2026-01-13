@@ -47,6 +47,14 @@ SpringGenerator.prototype.askFor = function askFor() {
         } 
         ,
         {
+            type: 'list',
+            name: 'dbType',
+            message: 'Select the database type:',
+            choices: ['PostgreSQL', 'MySQL', 'MongoDB', 'None'],
+            default: 'None'
+        }
+        ,
+        {
             type: 'string',
             name: 'javaVersion',
             message: 'Enter the Java Version',
@@ -144,6 +152,8 @@ SpringGenerator.prototype.askFor = function askFor() {
     this.prompt(prompts, function(props) {
 
         this.projectName = props.projectName;
+        this.baseName = props.projectName;
+        this.dbType = props.dbType;
 
         this.javaVersion = props.javaVersion;
 
