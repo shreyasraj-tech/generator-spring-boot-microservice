@@ -6,7 +6,8 @@ services:
     image: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
       POSTGRES_DB: <%= baseName %>
     networks:
       - my-network
@@ -15,7 +16,7 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: <%= baseName %>
     networks:
       - my-network
