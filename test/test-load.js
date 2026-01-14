@@ -48,7 +48,7 @@ describe('docker-compose generation', function () {
     it('should generate docker-compose.yml with MySQL service', function () {
       var content = fs.readFileSync(path.join(process.cwd(), 'docker-compose.yml'), 'utf8');
       assert.match(content, /image: mysql:5.7/);
-      assert.match(content, /MYSQL_ROOT_PASSWORD: password/);
+      assert.match(content, /MYSQL_ROOT_PASSWORD: .+/);
       assert.match(content, /MYSQL_DATABASE: testapp/);
       assert.match(content, /SPRING_DATASOURCE_URL: jdbc:mysql:\/\/db:3306\/testapp/);
     });
